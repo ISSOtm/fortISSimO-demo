@@ -48,7 +48,7 @@ bin/fO_demo.gb: AUXFILES = -m bin/$*.map -n bin/$*.sym
 define assemble
 obj/$2.o obj/$2.dbg: $1
 	@mkdir -p $${@D}
-	$${RGBASM} -Wall -Wextra -p 0xFF ${ASFLAGS} -I src/include/ -I src/fortISSimO/include/ -s all:obj/$2.vars.asm -o obj/$2.o $$< -DPRINT_DEBUGFILE >obj/$2.dbg
+	$${RGBASM} -Wall -Wextra -p 0xFF ${ASFLAGS} -I src/include/hardware.inc -I src/fortISSimO/include/ -s all:obj/$2.vars.asm -o obj/$2.o $$< -DPRINT_DEBUGFILE >obj/$2.dbg
 endef
 $(foreach asm_file,${SRCS},$(eval $(call assemble,${asm_file},$(basename $(notdir ${asm_file})))))
 

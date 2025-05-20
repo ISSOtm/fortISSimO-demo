@@ -1,5 +1,5 @@
 
-INCLUDE "hardware.inc/hardware.inc"
+INCLUDE "hardware.inc"
 
 
 SECTION "init", ROM0[$0100]
